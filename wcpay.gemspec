@@ -5,7 +5,7 @@ require 'wcpay/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "wcpay"
-  spec.version       = Alipay::VERSION
+  spec.version       = Wcpay::VERSION
   spec.authors       = ["Leon"]
   spec.email         = ["leon.zcf@gmail.com"]
   spec.description   = %q{An unofficial simple wcpay gem}

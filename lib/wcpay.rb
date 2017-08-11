@@ -6,10 +6,11 @@ require 'wcpay/notify'
 
 module WCPay
   class << self
-    attr_accessor :appId
-    attr_accessor :appKey
-    attr_accessor :appSecret
-    attr_accessor :partnerId
-    attr_accessor :partnerKey
+    attr_accessor :app_id
+    attr_accessor :mch_id
+    attr_accessor :app_key
+    attr_accessor :app_secret
+    # attr_accessor :partnerId
+    # attr_accessor :partnerKey
   end
 end

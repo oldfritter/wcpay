@@ -8,6 +8,7 @@ module WCPay
         mch_id: WCPay.mch_id,
         nonce_str: Utils.nonce_str,
         trade_type: 'NATIVE',
+        fee_type: 'CNY',
         sign_type: 'MD5'
       }.merge(Utils.stringify_keys(options))
       options[:sign] = WCPay::Sign.generate options

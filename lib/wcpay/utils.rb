@@ -1,4 +1,6 @@
 require 'nokogiri'
+require 'uuid'
+
 module WCPay
   module Utils
     def self.stringify_keys(hash)
@@ -11,6 +13,7 @@ module WCPay
     
     def self.nonce_str
       # 随机字符串，长度要求在32位以内
+      UUID.generate.gsub('-', '')
     end
     
     def self.xml_body options = {}

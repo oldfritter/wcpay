@@ -8,7 +8,7 @@ module WCPay
         query = params.sort.map do |key, value|
           "#{key}=#{value}"
         end.join('&') + "&key=#{WCPay.key}"
-        Digest::SHA1.hexdigest(query).upcase
+        Digest::MD5.hexdigest(query).upcase
       end
 
       def verify?(params)

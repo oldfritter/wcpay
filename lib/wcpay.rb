@@ -7,7 +7,7 @@ module WCPay
   class << self
     attr_accessor :app_id
     attr_accessor :mch_id
+    attr_accessor :app_secret
     attr_accessor :key
-    attr_accessor :secret
   end
 end

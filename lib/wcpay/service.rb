@@ -21,7 +21,7 @@ module WCPay
       request.body = Utils.xml_body options
       response = http.request request
       response_options = Utils.xml_parse response.body
-      return nil if response_options['code_url'].blank?
+      return '' if response_options['code_url'].blank?
       response_options['code_url'].gsub(/URl[：:]+/, '') # 以接口返回为准，URl或为URI
     end
 

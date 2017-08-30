@@ -5,7 +5,7 @@ module WCPay
     
     class << self
       def generate(params)
-        query = params.sort.map do |key, value|
+        query = params.as_json.sort.map do |key, value|
           "#{key}=#{value}"
         end.join('&') + "&key=#{WCPay.key}"
         Digest::MD5.hexdigest(query).upcase

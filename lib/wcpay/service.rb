@@ -34,7 +34,7 @@ module WCPay
 
     def self.check_required_options(options, names)
       names.each do |name|
-        warn("WCPay Warn: missing required option: #{name}") unless options.has_key?(name) && options.has_key?(name.to_sym)
+        warn("WCPay Warn: missing required option: #{name}") unless options.has_key?(name) || options.has_key?(name.to_sym)
       end
     end
     

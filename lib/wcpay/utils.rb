@@ -29,5 +29,9 @@ module WCPay
       options
     end
     
+    def self.generate_batch_no
+      UUID.generate.gsub('-', '')
+    end
+    
   end
 end

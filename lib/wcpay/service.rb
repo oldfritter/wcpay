@@ -33,7 +33,7 @@ module WCPay
       
     end
     
-    RefundWCPayRequest = %w( appid mch_id nonce_str sign out_trade_no out_refund_no total_fee refund_fee )
+    RefundWCPayRequest = %w( appid mch_id nonce_str sign transaction_id out_refund_no total_fee refund_fee )
     def self.refund options = {}
       options = {
         appid: WCPay.app_id,

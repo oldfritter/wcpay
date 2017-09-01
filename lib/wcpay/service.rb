@@ -16,7 +16,7 @@ module WCPay
       
       uri = URI.parse 'https://api.mch.weixin.qq.com/pay/unifiedorder'
       http = Net::HTTP.new uri.host, uri.port
-      http.use_ssl = true if uri.scheme == 'https'
+      http.use_ssl = true
       request = Net::HTTP::Post.new uri.request_uri
       request.body = Utils.xml_body options
       response = http.request request
@@ -31,6 +31,29 @@ module WCPay
     
     def self.order_query
       
+    end
+    
+    RefundWCPayRequest = %w( appid mch_id nonce_str sign out_trade_no out_refund_no total_fee refund_fee )
+    def self.refund
+      options = {
+        appid: WCPay.app_id,
+        mch_id: WCPay.mch_id,
+        nonce_str: Utils.nonce_str,
+        refund_fee_type: 'CNY',
+        sign_type: 'MD5'
+      }.merge(Utils.stringify_keys(options))
+      options[:sign] = WCPay::Sign.generate options
+      check_required_options(options, RefundWCPayRequest)
+      
+      uri = URI.parse 'https://api.mch.weixin.qq.com/secapi/pay/refund'
+      http = Net::HTTP.new uri.host, uri.port
+      http.use_ssl = true
+      http.cert = WCPay.apiclient_cert
+      http.key = WCPay.apiclient_key
+      request = Net::HTTP::Post.new uri.request_uri
+      request.body = Utils.xml_body options
+      response = http.request request
+      Utils.xml_parse response.body
     end
 
     def self.check_required_options(options, names)

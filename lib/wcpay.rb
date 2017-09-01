@@ -1,8 +1,8 @@
+require 'openssl'
 require "wcpay/version"
 require 'wcpay/utils'
 require 'wcpay/sign'
 require 'wcpay/service'
-require 'openssl'
 
 module WCPay
   class << self

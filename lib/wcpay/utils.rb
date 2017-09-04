@@ -25,7 +25,7 @@ module WCPay
     
     def self.xml_parse xml
       options = {}
-      Nokogiri::XML(xml).children[0].children.each { |node| options[node.name] = node.text }
+      Nokogiri::XML(xml).children[0].children.each { |node| options[node.name] = node.text unless node.name == 'text' || node.text.blank? }
       options
     end
     

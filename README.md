@@ -5,6 +5,10 @@ Wcpay 是一个用于微信公众号扫码支付的gem，可以将微信支付�
 
 ## useage
 
+```
+gem 'wcpay', git: 'https://github.com/oldfritter/wcpay'
+```
+
 0.准备
 
 ```
